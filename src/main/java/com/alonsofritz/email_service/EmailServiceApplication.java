@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EmailServiceApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("aws.java.v1.printLocation", "true");
+		System.setProperty("aws.java.v1.disableDeprecationAnnouncement", "true");
 		SpringApplication.run(EmailServiceApplication.class, args);
 	}
 

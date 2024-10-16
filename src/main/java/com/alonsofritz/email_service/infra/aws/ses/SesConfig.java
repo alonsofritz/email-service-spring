@@ -7,8 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SesConfig {
+
+    private static final String REGION = "us-east-2";
+
     @Bean
     public AmazonSimpleEmailService amazonSimpleEmailService() {
-        return AmazonSimpleEmailServiceClientBuilder.standard().build();
+        return AmazonSimpleEmailServiceClientBuilder.standard().withRegion(REGION).build();
     }
 }
