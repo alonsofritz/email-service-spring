@@ -102,8 +102,11 @@ A aplicação em questão segue uma estrutura que se assemelha à Arquitetura Li
 **Relacionamentos**
 
 **EmailServiceApplication** não possui dependências diretas com outras classes.
+
 **SesEmailSender** implementa a interface **EmailSenderGateway**.
+
 **SesEmailSender** utiliza **AmazonSimpleEmailService** configurado pela classe SesConfig.
+
 **SesEmailSender** lança **EmailServiceException** em caso de falha no envio de email.
 
  ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
