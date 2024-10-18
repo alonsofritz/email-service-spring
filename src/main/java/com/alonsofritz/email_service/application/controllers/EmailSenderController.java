@@ -19,7 +19,7 @@ public class EmailSenderController {
         this.emailSenderService = emailSenderService;
     }
 
-    @PostMapping()
+    @PostMapping("/send")
     public ResponseEntity<String> sendEmail(@RequestBody EmailRequest emailRequest) {
         try {
             this.emailSenderService.execute(emailRequest.to(), emailRequest.subject(), emailRequest.body());
