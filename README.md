@@ -63,51 +63,48 @@ POST /api/email/send - Send a e-mail from your sender to the destination
 }
 ```
 
-## Arquitetura da Aplicação
-A aplicação em questão segue uma estrutura que se assemelha à Arquitetura Limpa, com algumas adaptações:  
-1. **Camada de Aplicação:**  
-   - **Responsabilidade:** Inicia a aplicação e gerencia os controladores.
-   - **Exemplo:** EmailServiceApplication, EmailSenderController.
-2. **Camada de Domínio:**  
-   - **Responsabilidade:** Contém as regras de negócio e entidades.
-   - **Exemplo:** EmailSenderUseCase, EmailServiceException.
-3. **Camada de Infraestrutura:**  
-   - **Responsabilidade:** Gerencia a comunicação com serviços externos e configurações.
-   - **Exemplo:** SesEmailSender, SesConfig.
-4. **Camada de Adapters:**  
-   - **Responsabilidade:** Define contratos e interfaces para comunicação entre camadas.
-   - **Exemplo:** EmailSenderGateway.
+## Application Architecture
+The application follows a structure that resembles Clean Architecture, with some adaptations:  
+1. **Application Layer:**  
+   - **Responsibility:** Starts the application and manages the controllers.
+   - **Example:** `EmailServiceApplication`, `EmailSenderController`.
+2. **Domain Layer:**  
+   - **Responsibility:** Contains business rules and entities.
+   - **Example:** `EmailSenderUseCase`, `EmailServiceException`.
+3. **Infrastructure Layer:**  
+   - **Responsibility:** Manages communication with external services and configurations.
+   - **Example:** `SesEmailSender`, `SesConfig`.
+4. **Adapters Layer:**  
+   - **Responsibility:** Defines contracts and interfaces for communication between layers.
+   - **Example:** `EmailSenderGateway`.
 
-## Classes Principais
+## Main Classes
 1. **EmailServiceApplication**  
-   - Descrição: Classe principal que inicia a aplicação Spring Boot.
+   - Description: Main class that starts the Spring Boot application.
 2. **SesEmailSender**  
-   - **Descrição:** Implementa a interface EmailSenderGateway para enviar emails usando o Amazon SES.
-   - **Atributos:**
-     - **emailSender:** String (configurado via @Value a partir do application.properties)
-     - **amazonSimpleEmailService:** AmazonSimpleEmailService (injeção via @Autowired)
-   - **Métodos:**
-     - **sendEmail(String to, String subject, String body)**: Envia um email utilizando o serviço Amazon SES.
+   - **Description:** Implements the `EmailSenderGateway` interface to send emails using Amazon SES.
+   - **Attributes:**
+     - **emailSender:** `String` (configured via `@Value` from `application.properties`)
+     - **amazonSimpleEmailService:** `AmazonSimpleEmailService` (injected via `@Autowired`)
+   - **Methods:**
+     - `sendEmail(String to, String subject, String body)`: Sends an email using Amazon SES.
 3. **SesConfig**  
-   - **Descrição:** Configura o cliente AmazonSimpleEmailService para ser usado na aplicação.
-   - **Métodos:**
-     - **amazonSimpleEmailService():** Cria e configura um bean do tipo AmazonSimpleEmailService.
+   - **Description:** Configures the `AmazonSimpleEmailService` client to be used in the application.
+   - **Methods:**
+     - `amazonSimpleEmailService()`: Creates and configures a bean of type `AmazonSimpleEmailService`.
 4. **EmailSenderGateway**  
-   - Descrição: Interface que define o contrato para envio de emails.
-   - **Métodos:**
-     - **sendEmail(String to, String subject, String body):** Método abstrato para envio de email.
-5. **EmailServiceException**
-   - **Descrição:** Exceção personalizada para erros no serviço de email.
+   - Description: Interface that defines the contract for sending emails.
+   - **Methods:**
+     - `sendEmail(String to, String subject, String body)`: Abstract method for sending email.
+5. **EmailServiceException**  
+   - **Description:** Custom exception for errors in the email service.
 
-**RELACIONAMENTOS**
+**RELATIONSHIPS**
 
-**EmailServiceApplication** não possui dependências diretas com outras classes.
-
-**SesEmailSender** implementa a interface **EmailSenderGateway**.
-
-**SesEmailSender** utiliza **AmazonSimpleEmailService** configurado pela classe SesConfig.
-
-**SesEmailSender** lança **EmailServiceException** em caso de falha no envio de email.
+- `EmailServiceApplication` has no direct dependencies on other classes.
+- `SesEmailSender` implements the `EmailSenderGateway` interface.
+- `SesEmailSender` uses `AmazonSimpleEmailService` configured by the `SesConfig` class.
+- `SesEmailSender` throws `EmailServiceException` in case of email sending failure.
 
  ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
  ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
