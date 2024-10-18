@@ -8,8 +8,8 @@ This project is an API built using **Java, Java Spring, AWS Simple Email Service
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Database](#database)
-- [Contributing](#contributing)
+- [Arquitetura da Aplicação](#arquitetura-da-aplicação)
+- [Classes Principais](#classes-principais)
 
 ## Installation
 
@@ -63,7 +63,7 @@ POST /api/email/send - Send a e-mail from your sender to the destination
 }
 ```
 
-## ARQUITETURA DA APLICAÇÃO
+## Arquitetura da Aplicação
 A aplicação em questão segue uma estrutura que se assemelha à Arquitetura Limpa, com algumas adaptações:  
 1. **Camada de Aplicação:**  
    - **Responsabilidade:** Inicia a aplicação e gerencia os controladores.
@@ -78,7 +78,7 @@ A aplicação em questão segue uma estrutura que se assemelha à Arquitetura Li
    - **Responsabilidade:** Define contratos e interfaces para comunicação entre camadas.
    - **Exemplo:** EmailSenderGateway.
 
-## CLASSES PRINCIPAIS
+## Classes Principais
 1. **EmailServiceApplication**  
    - Descrição: Classe principal que inicia a aplicação Spring Boot.
 2. **SesEmailSender**  
@@ -99,7 +99,7 @@ A aplicação em questão segue uma estrutura que se assemelha à Arquitetura Li
 5. **EmailServiceException**
    - **Descrição:** Exceção personalizada para erros no serviço de email.
 
-**Relacionamentos**
+**RELACIONAMENTOS**
 
 **EmailServiceApplication** não possui dependências diretas com outras classes.
 
