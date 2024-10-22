@@ -8,8 +8,8 @@ This project is an API built using **Java, Java Spring, AWS Simple Email Service
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Arquitetura da Aplicação](#application-architecture)
-- [Classes Principais](#main-classes)
+- [Application Architecture](#application-architecture)
+- [Main Classes](#main-classes)
 
 ## Installation
 
